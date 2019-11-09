@@ -41,9 +41,8 @@ def casa_edit(request, casa_id):
     return render(request, 'edit.html', context=context)
 
 def casa_delete(request, casa_id):
-    context = dict()
-    Hotel.objects.delete(id=casa_id)
-    context['tipo'] = 'casas'
+    casa = Casa.objects.get(id=casa_id)
+    casa.delete()
     return redirect('casa_view')
 
 #Apartamento
@@ -82,7 +81,6 @@ def apartamento_edit(request, apartamento_id):
     return render(request, 'edit.html', context=context)
 
 def apartamento_delete(request, apartamento_id):
-    context = dict()
-    Hotel.objects.delete(id=apartamento_id)
-    context['tipo'] = 'apartamentos'
+    apartamento = Apartamento.objects.get(id=apartamento_id)
+    apartamento.delete()
     return redirect('apartamento_view')

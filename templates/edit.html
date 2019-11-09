@@ -30,9 +30,9 @@
   </form>
   <br>
   {% if tipo == 'casas' %}
-      <a href="{% url 'casa_delete'%}" style="color: red;">Deletar Casa</a>
+      <a href="{% url 'casa_delete' casa.id %}" style="color: red;">Deletar Casa</a>
   {% elif  elif tipo == 'apartamentos' %}
-      <a href="{% url 'apartamento_delete'%}">Deletar Casa</a>
+      <a href="{% url 'apartamento_delete' apartamento.id %}">Deletar Casa</a>
   {% else %}
       Erro!
   {% endif %}
