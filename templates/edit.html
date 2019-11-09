@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'casas' %}
+          Casas
+      {% elif tipo == 'apartamentos' %}
+          Apartamentos
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+    <h1>
+      Visualizar
+      {% if tipo == 'casas' %}
+          Casa
+      {% elif tipo == 'apartamentos' %}
+          Apartamento
+      {% else %}
+          Erro!
+      {% endif %}
+    </h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+  </form>
+  <br>
+  {% if tipo == 'casas' %}
+      <a href="{% url 'casa_delete'%}" style="color: red;">Deletar Casa</a>
+  {% elif  elif tipo == 'apartamentos' %}
+      <a href="{% url 'apartamento_delete'%}">Deletar Casa</a>
+  {% else %}
+      Erro!
+  {% endif %}
+
+  </body>
+</html>

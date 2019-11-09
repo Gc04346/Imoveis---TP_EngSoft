@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'casas' %}
+          Casas
+      {% elif tipo == 'apartamentos' %}
+          Apartamentos
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+      {% if tipo == 'casas' %}
+          <h1>Casas</h1>
+          <div class="container">
+            {% for casa in casas %}
+              <div class="row">
+                {{ casa }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif tipo == 'apartamentos' %}
+          <h1>Apartamentos</h1>
+          <div class="container">
+            {% for apartamento in apartamentos %}
+              <div class="row">
+                {{ apartamento }}
+              </div>
+            {% endfor %}
+          </div>
+      {% else %}
+          <h1>Erro!</h1>
+      {% endif %}
+  </body>
+</html>

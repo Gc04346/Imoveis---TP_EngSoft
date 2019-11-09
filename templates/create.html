@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'casas' %}
+          Casas
+      {% elif tipo == 'apartamentos' %}
+          Apartamentos
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+    <h1>
+      Criar
+      {% if tipo == 'casas' %}
+          Nova Casa
+      {% elif tipo == 'apartamentos' %}
+          Novo Apartamento
+      {% else %}
+          Erro!
+      {% endif %}
+    </h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

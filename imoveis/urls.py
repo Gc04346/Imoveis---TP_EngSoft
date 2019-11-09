@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import casa_create, casa_view, casa_edit, casa_delete, apartamento_create, apartamento_view, apartamento_edit, apartamento_delete,
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Casa
+    path('casa/create', casa_create, name='casa_create'),
+    path('casa/view', casa_view, name='casa_view'),
+    path('casa/edit/<int:casa_id>', casa_edit, name='casa_edit'),
+    path('casa/delete/<int:casa_id>', casa_delete, name='casa_delete'),
+    #Apartamento
+    path('apartamento/create', apartamento_create, name='apartamento_create'),
+    path('apartamento/view', apartamento_view, name='apartamento_view'),
+    path('apartamento/edit/<int:apartamento_id>', apartamento_edit, name='apartamento_edit'),
+    path('apartamento/delete/<int:apartamento_id>', apartamento_delete, name='apartamento_delete'),
 ]
